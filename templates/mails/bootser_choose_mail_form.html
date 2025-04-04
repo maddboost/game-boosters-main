@@ -1,0 +1,18 @@
+{% extends 'layouts/base_mail.html' %}
+
+{% block subject %}
+You Have New Order.
+{% endblock %}
+
+
+{% block container %}
+    <p>Hello {{ booster.username }},</p>
+    <p>You have been assigned to the following boost:</p>
+    <div class="order-details">
+        <p><strong>Order Name:</strong> {{ order_name }}</p>
+        <p><strong>Requested Time:</strong> {{ requested_time }}</p>
+    </div>
+    <p>Please check your dashboard for more details.</p>
+    <p>Have any questions about this action?</p>
+    <p>We're here to help! Just open a ticket on the discord server and we'll get back to you.</p>
+{% endblock %}

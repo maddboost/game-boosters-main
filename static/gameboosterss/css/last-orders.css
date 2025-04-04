@@ -1,0 +1,143 @@
+.orders-container {
+  position: relative;
+  background-color: var(--background-color);
+}
+/* Start Landing */
+.orders-container .orders-landing {
+  width: 100%;
+  height: 690px;
+  background-image: url('./../../games/images/games_bg.jpg');
+  background-size: cover;
+  background-position-y: -277px;
+  background-position-x: center; 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1199px) {
+  .orders-container .orders-landing {
+    background-position-y: -167px;
+  }
+}
+@media (max-width: 767px) {
+  .orders-container .orders-landing{
+    background-position-y: -66px;
+  }
+}
+.orders-container .orders-landing::before {
+  content: "";
+  width: 100%;
+  height: 120%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(72, 54, 33, 0.65) 0%, #1E1814 64.35%);
+}
+.orders-landing .heading {
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  color: white;
+}
+@media (max-width: 767px) {
+  .orders-landing .heading {
+    top: 23%;
+  }
+}
+.orders-landing .heading h1 {
+  font-weight: bolder;
+  font-size: 64px;
+  font-family: var(--heading-font);
+  letter-spacing: 3px;
+}
+.orders-landing .heading p {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+@media (max-width: 767px) {
+  .orders-landing .heading h1 {
+    font-size: 31px;
+  }
+  .orders-landing .heading p {
+    font-size: 1rem;
+  }
+}
+/* Start Orders */
+.orders {
+  position: relative;
+  margin-top: -250px;
+}
+@media (max-width: 767px) {
+  .orders {
+    margin-top: -375px;
+  }
+}
+.order {
+  background-color: var(--main-color);
+  border-radius: 1.5rem;
+  padding: 24px 15px;
+}
+.order .banner {
+  width: 100%;
+  height: 352px;
+}
+.order .banner img {
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+}
+.order .information .booster .image img {
+  border-radius: calc(var(--main-radius) * 2);
+  width: 75px !important;
+  height: 75px !important;
+}
+.order h2, .order p {
+  font-family: var(--sharp-semibold-15);
+}
+.order .information .booster .name p:first-child,
+.order .information .reached-info-container p:first-child,
+.order .information .from-container p:first-child,
+.order .information .to-container p:first-child {
+  color: #FFFFFF80;
+}
+.order .information .booster .name p:last-child,
+.order .information .reached-info-container p:last-child,
+.order .information .from-container p:last-child,
+.order .information .to-container p:last-child {
+  color: #ffffff;
+}
+@media (max-width: 767px) {
+  .order .information .booster .name p,
+  .order .information .reached-info-container p,
+  .order .information .from-container p,
+  .order .information .to-container p,
+  .from-to p {
+    font-size: 12px;
+  }
+}
+#duo-or-solo {
+  padding: 4px 8px 6px;
+  border-radius: var(--main-radius);
+  background-color: var(--secondary-color);
+  font-weight: 300;
+  font-size: 1rem;
+}
+@media (max-width: 767px) {
+  #duo-or-solo {
+    display: block;
+  }
+}
+#duo-or-solo.duo {
+  background-color: #06A5B0 !important;
+}
+#duo-or-solo.solo {
+  background-color: var(--secondary-color) !important;
+}
+
+.from-to {
+  border-radius: var(--main-radius);
+  background-color: var(--background-color);
+  min-height: 56px;
+}
+/* End Orders */

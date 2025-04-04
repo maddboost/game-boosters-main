@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5ZW3J6P3');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap/css/bootstrap.css'%}" rel="stylesheet" />
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'base/css/master.css'%}" />
+    <link rel="stylesheet" href="{% static 'base/css/fields.css' %}">
+    <link id="favicon" rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <!-- Our Style -->
+    <link rel="stylesheet" href="{% static 'accounts/css/account-actions.css' %}">
+    <title>Work With Us</title>
+    
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZW3J6P3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Start Header -->
+    {% include 'widgets/header.html' %}
+    <!-- End Header -->
+
+    <div class="workwithus-content content">
+        <div class="overlay">
+            <div class="container py-xl-5 py-0">
+                <div class="row row-cols-xl-2 row-cols-1 py-xl-5 py-0 mt-5">
+
+                    <div class="col left-side d-xl-block d-none">
+                        <div class="image">
+                            <img src="{% static 'accounts/images/workwithus.png' %}" class="img-fluid" alt="Landing">
+                        </div>
+                        <div class="text mt-5">
+                            <h1>REACH YOUR RANK <span>GOALS</span></h1>
+                            <p>with <span>MadBoost.gg</span> your ally in the eSports arena.</p>
+                        </div>
+                    </div>
+                    <div class="col right-side">
+                        <div class="ps-xl-5 ps-0 mx-xl-4 mx-0">
+                            <div class="head">
+                                <h1>Work with us</h1>
+                                <p class="my-5 text-center">Thank you for your interest in working with us! <br />We have received your application. We will <br />contact you later if we decided to procced.
+                                <br>Your request ID is: {{ id }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static  'jQuery/jquery-3.7.0.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js'%}"></script>
+    <script src="{% static  'base/js/base.js' %}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="{% static  'base/js/base.js' %}"></script>
+
+</body>
+
+</html>

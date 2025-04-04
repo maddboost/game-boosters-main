@@ -1,0 +1,348 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5ZW3J6P3');</script>
+      <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'bootstrap/css/bootstrap.css'%}" rel="stylesheet" />
+  <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet">
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'base/css/master.css'%}" />
+  <link rel="stylesheet" href="{% static 'base/css/fields.css' %}">
+  <link rel="stylesheet" href="{% static 'base/css/framework.css' %}">
+  <link id="favicon" rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+  <!-- Our Style -->
+  <link rel="stylesheet" href="{% static 'accounts/css/account-actions.css' %}">
+  <meta name="cryptomus" content="ccb11a35" />
+  <title>Sign Up</title>
+
+  <style>
+    .form-group {
+    position: relative;
+    }
+
+    .password-input-container {
+        position: relative;
+    }
+
+    .togglePassword {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+    <!-- facebook -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1103754014333574',
+          xfbml      : true,
+          version    : 'v20.0'
+        });
+        FB.AppEvents.logPageView();
+      };
+    
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
+     <!-- Google Tag Manager (noscript) -->
+     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZW3J6P3"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <!-- Start Header -->
+  {% include 'widgets/header.html' %}
+  <!-- End Header -->
+
+  <div class="signup-content content">
+    <div class="overlay">
+      <div class="container py-xl-5 py-0">
+        <div class="row row-cols-xl-2 row-cols-1 py-xl-5 py-0 mt-5">
+
+          <div class="col left-side d-xl-block d-none">
+            <div class="image">
+              <img src="{% static 'accounts/images/signup.png' %}" class="img-fluid" alt="Landing">
+            </div>
+            <div class="text mt-5">
+              <h1>REACH YOUR RANK <span>GOALS</span></h1>
+              <p>with <span>MadBoost.gg</span> your ally in the eSports arena.</p>
+            </div>
+          </div>
+          <div class="col right-side">
+            <div class="ps-xl-5 ps-0 mx-xl-4 mx-0">
+              <div class="head">
+                <h1>Sign Up</h1>
+                <p class="mb-4 text-center">Getting Started is easy, sign up in a few steps!</p>
+
+                <div class="progress mb-5">
+                  <div class="progress-bar" style="width: 50%;" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                    aria-valuemax="100">
+                  </div>
+                </div>
+              </div>
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group mb-4">
+                  <!-- Render the full_name field with placeholder -->
+                  {{ form.full_name }}
+                  {% if form.full_name.errors %}
+                  <div class="message error-message mt-2 w-100">
+                    {% for error in form.full_name.errors %}
+                    {{ error }}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="form-group mb-4">
+                  <!-- Render the email field with placeholder -->
+                  {{ form.email }}
+                  {% if form.email.errors %}
+                  <div class="message error-message mt-2 w-100">
+                    {% for error in form.email.errors %}
+                    {{ error }}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="form-group mb-4">
+                  <!-- Render the username field with placeholder -->
+                  <div class="form-group mb-4">
+                    <input type="text" name="username" class="form-control custom-input" placeholder="Username" autofocus required id="id_username">
+                    <div id="usernameHelpBlock" class="message error-message mt-2 w-100 d-none">Username can only contain letters, numbers, underscores, and hyphens</div>
+                  </div>
+                  {% if form.username.errors %}
+                  <div class="message error-message mt-2 w-100">
+                    {% for error in form.username.errors %}
+                    {{ error }}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                </div>
+
+                <div class="form-group mb-4" id="password1Container">
+                  <!-- Render the password1 field with placeholder -->
+                  <div class="password-input-container">
+                    <input type="password" name="password1" class="form-control custom-input" placeholder="Enter password" required="" id="id_password1">
+                    <i class="fa fa-eye togglePassword" id="togglePassword1"></i>
+                </div>
+                <div id="password1HelpBlock" class="message error-message mt-2 w-100 d-none">Shold be Strong Password</div>
+                  {% if form.password1.errors %}
+                  <div class="message error-message mt-2 w-100">
+                    {% for error in form.password1.errors %}
+                    {{ error }}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="form-group mb-4" id="password2Container">
+                  <!-- Render the password2 field with placeholder -->
+                  <div class="password-input-container">
+                    <input type="password" name="password2" class="form-control custom-input" placeholder="Confirm password" required="" id="id_password2">
+                    <i class="fa fa-eye togglePassword" id="togglePassword2"></i>
+                </div>
+                <div id="password2HelpBlock" class="message error-message mt-2 w-100 d-none">Passwords do not match</div>
+                  {% if form.password2.errors %}
+                  <div class="message error-message mt-2 w-100">
+                    {% for error in form.password2.errors %}
+                    {{ error }}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                  <div id="password2HelpBlock" class="message error-message mt-2 w-100 d-none">2 passwords don't match</div>
+                </div>
+                <div class="form-group mb-4">
+                  <div class="select-container">
+                    <!-- Render the country field with placeholder -->
+                    {{ form.country }}
+                    {% if form.country.errors %}
+                    <div class="message error-message mt-2 w-100">
+                      {% for error in form.country.errors %}
+                      {{ error }}
+                      {% endfor %}
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <p class="continue-with">or continue with</p>
+                  <div class="social text-center">
+                    <a href="{% url 'social:begin' 'google-oauth2' %}" class="me-md-4 me-2">
+                      <img src="{% static 'accounts/images/google.png' %}" class="me-2" alt="Google" width="24"
+                        height="24">
+                      Google
+                    </a>
+                    <a href="{% url 'social:begin' 'facebook' %}">
+                      <img src="{% static 'accounts/images/facebook.png' %}" class="me-2" alt="Facebook" width="24"
+                        height="24">
+                      Facebook
+                    </a>
+                  </div>
+                </div>
+                <div class="form-group mb-4">
+                  <p class="text-center footer-link">Have an account? <a href="{% url 'account.login' %}"
+                      style="color: var(--secondary-color);">Log in!</a></p>
+                </div>
+                <button id="register-btn" type="submit" class="btn update-btn">Create Account</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static  'jQuery/jquery-3.7.0.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.js'%}"></script>
+  <script src="{% static  'base/js/base.js' %}"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function addEmptyOptionToCountryField() {
+      const countrySelect = document.getElementById('id_country');
+      const emptyOption = document.createElement('option');
+      emptyOption.value = '';
+      emptyOption.text = 'Choose your country(Optional)';
+
+      // Insert the empty option at the beginning of the dropdown list
+      countrySelect.insertBefore(emptyOption, countrySelect.firstChild);
+
+      // Set the empty option as selected by default
+      countrySelect.value = '';
+    }
+
+    // Call the function on page load
+    document.addEventListener('DOMContentLoaded', function () {
+      addEmptyOptionToCountryField();
+    });
+  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const togglePassword1 = document.querySelector("#togglePassword1");
+      const password1 = document.querySelector("#id_password1");
+      const togglePassword2 = document.querySelector("#togglePassword2");
+      const password2 = document.querySelector("#id_password2");
+      const password1HelpBlock = document.querySelector("#password1HelpBlock");
+      const password2HelpBlock = document.querySelector("#password2HelpBlock");
+      const usernameInput = document.querySelector("#id_username");
+      const usernameHelpBlock = document.querySelector("#usernameHelpBlock");
+      const submitBtn = document.getElementById("register-btn");
+
+      // List of common passwords to check against
+      const commonPasswords = [
+          "password",
+          "123456",
+          "12345678",
+          "qwerty",
+          "abc123",
+          "password1",
+          "1234567",
+          "123123",
+          // Add more common passwords as needed
+      ];
+
+      // Toggle password visibility
+      togglePassword1.addEventListener("click", function() {
+          const type = password1.getAttribute("type") === "password" ? "text" : "password";
+          password1.setAttribute("type", type);
+          this.classList.toggle("fa-eye");
+          this.classList.toggle("fa-eye-slash");
+      });
+
+      togglePassword2.addEventListener("click", function() {
+          const type = password2.getAttribute("type") === "password" ? "text" : "password";
+          password2.setAttribute("type", type);
+          this.classList.toggle("fa-eye");
+          this.classList.toggle("fa-eye-slash");
+      });
+
+      // Validate password1 for containing both numbers, characters, and minimum length
+      password1.addEventListener("input", function() {
+          const passwordValue1 = password1.value;
+          const hasNumber = /\d/.test(passwordValue1);
+          const hasCharacter = /[a-zA-Z]/.test(passwordValue1);
+          const hasMinimumLength = passwordValue1.length >= 8;
+
+          // Check for common passwords
+          const isCommonPassword = commonPasswords.includes(passwordValue1.toLowerCase());
+
+          // Check for sequential numbers
+          const hasSequentialNumbers = /(123|234|345|456|567|678|789|987|876|765|654|543|432|321)/.test(passwordValue1);
+
+          // Check for commonly used patterns like "123456789"
+          const hasCommonPattern = /123456789/.test(passwordValue1);
+
+          // Display appropriate error messages
+          if (!hasNumber || !hasCharacter || !hasMinimumLength || isCommonPassword || hasSequentialNumbers || hasCommonPattern) {
+              password1HelpBlock.classList.remove("d-none");
+          } else {
+              password1HelpBlock.classList.add("d-none");
+          }
+
+          // Validate password2 again if it's already entered
+          if (password2.value !== '') {
+              password2.dispatchEvent(new Event('input'));
+          }
+
+          toggleSubmitBtnState();
+      });
+
+      // Validate password2 for matching password1
+      password2.addEventListener("input", function() {
+          const passwordValue1 = password1.value;
+          const passwordValue2 = password2.value;
+
+          if (passwordValue1 !== passwordValue2) {
+              password2HelpBlock.classList.remove("d-none");
+          } else {
+              password2HelpBlock.classList.add("d-none");
+          }
+          toggleSubmitBtnState();
+      });
+
+      // Validate username for valid characters
+      usernameInput.addEventListener("input", function() {
+          const username = usernameInput.value.trim();
+          const isValid = /^[a-zA-Z0-9_-]*$/.test(username);
+
+          if (!isValid) {
+              usernameHelpBlock.classList.remove("d-none");
+          } else {
+              usernameHelpBlock.classList.add("d-none");
+          }
+          toggleSubmitBtnState();
+      });
+
+      // Function to toggle submit button state based on errors
+      function toggleSubmitBtnState() {
+          const hasError = !password1HelpBlock.classList.contains("d-none") ||
+                           !password2HelpBlock.classList.contains("d-none") ||
+                           !usernameHelpBlock.classList.contains("d-none");
+
+          submitBtn.disabled = hasError;
+      }
+  });
+</script>
+</body>
+
+</html>

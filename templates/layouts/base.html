@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5ZW3J6P3');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="cryptomus" content="ccb11a35" />
+  <link href="{% static 'bootstrap/css/bootstrap.css'%}" rel="stylesheet" />
+  <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet">
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'base/css/master.css'%}" />
+  <link rel="stylesheet" href="{% static 'base/css/fields.css' %}">
+  <link rel="stylesheet" href="{% static 'base/css/framework.css' %}">
+  <link id="favicon" rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+  <style>
+  .banner {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .bner-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+  .dropdown-item:hover{
+    background-color: #DE4949;
+    color: white;
+  }
+  .dropdown-item{
+    color: white;
+  }
+
+  /* Hide the default checkbox */
+.dropdown-item input {
+    display: none;
+}
+
+/* Style the slider container */
+.sound-slider {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 20px;
+    transition: background-color 0.4s;
+}
+
+/* Style the slider */
+.sound-slider::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #1E1814;
+    border-radius: 50%;
+    transition: transform 0.4s;
+}
+
+  input:checked + .sound-slider::before {
+    transform: translateX(20px);
+    background-color: #DE4949;
+  }
+  img {
+  pointer-events: none;
+  user-select: none;  
+  -webkit-user-drag: none; 
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  }
+  </style>
+
+  <title>{% block title %}Mad Boost{% endblock %}</title>
+  {% block style %}
+  {% endblock %}
+  <meta name="facebook-domain-verification" content="rmtp9o0h7ntmxakmat8fpe2zhuj9by" />
+</head>
+
+<body  style="overflow-x: hidden;">
+    <!-- facebook -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1103754014333574',
+          xfbml      : true,
+          version    : 'v20.0'
+        });
+        FB.AppEvents.logPageView();
+      };
+    
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+  
+   <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZW3J6P3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="loader" class="loader-overlay" style="display: none;">
+    <div>
+        <div class="spinner"></div>
+        <div class="loader-text d-none">please wait...</div>
+    </div>
+  </div>
+
+  <div id="body-overlay">
+
+    <audio id="notificationSound" src="{% static 'sounds/notify.wav' %}" preload="auto"></audio>
+
+    {% include 'widgets/header.html' %}
+    <!-- Start Container -->
+    {% block container %}
+    {% endblock %}
+    <!-- End Container -->
+
+    <!-- Start Footer -->
+    <div class="footer">
+
+      <div class="info py-4">
+        <div class="container">
+          <div class="row justify-content-between align-items-center ">
+            <div class="col-lg-2 col-md-3 col-12">
+              <img src="{% static 'base/images/logo.png' %}" class="img-fluid footer-logo" width="300" alt="Logo">
+            </div>
+            <div class="col-lg-10 col-md-9 col-12 text-white">
+              <p class="mb-0 footer-text" style="font-size: 16px;">
+                MadBoost is an independent entity and is not endorsed or affiliated with Activision Blizzard, Riot Games, Electronic Arts, Amazon Games, or
+                Respawn Entertainment. The views and opinions expressed by Boosting Factory do not necessarily reflect those of the individuals officially involved
+                in producing or managing Heroes of the Storm, Valorant, Overwatch, Call of Duty, New World, and League of Legends. All trademarks and logos are
+                the property of their respective owners. All submitted art content remains the copyright of its original copyright holder.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact py-4">
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+
+            <div class="col-md-9 col-12 p-0">
+              <ul class="links">
+                <li>
+                  <a href="" >Contact us</a>
+                </li>
+
+                {% if not request.user.is_booster %}
+                <li>
+                  <a href="{% url 'workwithus' %}" >Work with us</a>
+                </li>
+                {% endif %}
+    
+                {% if not request.user.is_booster %}
+                <li>
+                  <a href="" >Report</a>
+                </li>
+                {% endif %}
+    
+                <li>
+                  <a href="{% url 'terms.service' %}" >Terms of Service</a>
+                </li>
+    
+                <li>
+                  <a href="{% url 'privacy.policy' %}" >Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-3 col-12 p-0">
+              <ul class="social">
+                <li>
+                  <a href="https://www.facebook.com/madboost.gg/" class="facebook me-2">
+                    <i class="fa-brands fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/madboost.gg/" class="instgram me-2">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@MadBoostgg" class="youtube me-2">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="" class="x-twitter me-2">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@madboost.gg" class="tiktok">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <p class="mb-0 text-light text-start copyright">&copy; 2024 MadBoost - All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Footer -->
+  </div>
+  <script src="{% static  'jQuery/jquery-3.7.0.js' %}"></script>
+  <script src="{% static  'base/js/base.js' %}"></script>
+  <!-- <script src="{% static  'base/js/script.js' %}"></script> -->
+  <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.js'%}"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    document.querySelectorAll('img').forEach(img => {
+      img.ondragstart = () => false;
+    });
+  </script>
+  <script>
+    AOS.init();
+  </script>
+  {% block script %}
+  {% endblock %}
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/66fdb45d37379df10df0f5f9/1i97gh3uh';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+</script>
+  <!--End of Tawk.to Script-->
+</body>
+
+</html>

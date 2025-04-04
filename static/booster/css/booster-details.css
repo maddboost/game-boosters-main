@@ -1,0 +1,336 @@
+.booster-container {
+  position: relative;
+}
+/* Start Landing */
+.booster-container .booster-landing {
+  width: 100%;
+  height: 690px;
+  background-image: url('./../../games/images/games_bg.jpg');
+  background-size: cover;
+  background-position-y: -277px;
+  background-position-x: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  /* background-position: top center; */
+}
+.booster-container .booster-landing::before {
+  content: "";
+  width: 100%;
+  height: 120%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(72, 54, 33, 0.65) 0%, #1E1814 64.35%);
+}
+@media (max-width: 1199px) {
+  .booster-container .booster-landing {
+    background-position-y: -167px;
+  }
+}
+@media (max-width: 767px) {
+  .booster-container .booster-landing {
+    background-position-y: -66px;
+    /* background-position-x: -186px; */
+  }
+}
+.booster-landing .heading {
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  color: white;
+}
+@media (max-width: 767px) {
+  .booster-landing .heading {
+    top: 23%;
+  }
+}
+.booster-landing .heading h1 {
+  font-weight: bolder;
+  font-size: 64px;
+  font-family: var(--heading-font);
+  letter-spacing: 3px;
+}
+.booster-landing .heading p {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+@media (max-width: 991px) {
+  .booster-landing .heading h1 {
+    font-size: 40px;
+  }
+  .booster-landing .heading p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 767px) {
+  .booster-landing .heading p {
+    font-size: 12px;
+  }
+}
+/* Start Boosters */
+.booster {
+  position: relative;
+  margin-top: -280px; /* Adjust this value as needed */
+}
+@media (max-width: 767px) {
+  .booster {
+    margin-top: -375px;
+  }
+}
+.booster-info {
+  border-radius: 24px;
+  background: linear-gradient(to bottom, #332a25 30%, var(--main-color));
+  padding-left: 38px;
+  padding-right: 38px;
+}
+.image .profile-image {
+  width: 312px;
+  height: 312px;
+}
+.booster-username {
+  font-size: 40px;
+}
+@media (max-width: 991px) {
+  .booster-info {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+  .profile-image {
+    width: 128px;
+    height: 128px;
+  }
+  .booster-username {
+    font-size: 32px;
+  }
+  .booster-info p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  .booster-info {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+  .profile-image {
+    width: 80px;
+    height: 80px;
+  }
+  .booster-username {
+    font-size: 24px;
+  }
+}
+.games-he-play h3 {
+  font-size: 24px !important;
+}
+@media (max-width: 991px) {
+  .games-he-play h3 {
+    font-size: 16px !important;
+  }
+}
+.banner-container {
+  width: 450px;
+  height: 110px;
+  position: relative;
+}
+@media (max-width: 991px) {
+  .banner-container {
+    width: 265px;
+  }
+}
+@media (max-width: 767px) {
+  .banner-container {
+    width: 100%;
+  }
+}
+.game-link {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.game-link::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('./../../games/images/bg_cover.png');
+  background-size: cover;
+  object-fit: cover;
+  border-radius: var(--main-radius);
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.game-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: none;
+  object-position: 55% 20%;
+  border: 1px solid #332A27;
+  border-radius: var(--main-radius);
+}
+.game-name-img {
+  width: 80%;
+  height: 80%;
+  position: relative;
+  top: -87%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* Start Special Data */
+.special-data .icon-image {
+  width: 79px;
+  height: 75.41px;
+  border-radius: calc(var(--main-radius) * 2);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.special-data p.head {
+  font-family: var(--sharp-semibold-15);
+  font-size: 1.5rem;
+}
+@media (max-width: 767px) {
+  .special-data p.head {
+    font-size: 1rem;
+  }
+}
+.special-data p:not(.head) {
+  font-weight: lighter;
+  font-size: 16px;
+}
+/* End Special Data */
+
+/* Start Portfolio */
+h1 {
+  font-family: var(--heading-font);
+  font-size: 4rem;
+}
+.portfolio .head p {
+  font-size: 1.5rem;
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  .portfolio .head p {
+    font-size: 1rem;
+  }
+}
+.portfolio-swiper {
+  margin-inline: 4rem;
+}
+/* Swiper class */
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  content: "";
+}
+.swiper-button-prev,
+.swiper-button-next {
+  font-size: 3rem;
+  display: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: black;
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-button-next {
+  right: 0;
+}
+/* For medium devices */
+@media screen and (min-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Start History */
+.history:not(:last-of-type) .table-row {
+  border-bottom: 0.5px solid var(--main-color);
+}
+.history {
+  li {
+    display: flex;
+    justify-content: space-between;
+  }
+  .table-header {
+    margin-top: 2rem;
+  }
+  .table-header .col {
+    font-size: 24px;
+  }
+  .col {
+    flex-basis: calc(100% / 4);
+  }
+  .table-row .col {
+    padding: 16px 0 40px;
+  }
+  .table-row .col p {
+    font-size: 24px;
+  }
+  .table-row .col img {
+    width: 48px;
+    height: 48px;
+  }
+
+  @media all and (max-width: 1199px) {
+    .table-row .col, .table-row .col p, .table-row div, .table-header .col {
+      font-size: 16px;
+    }
+    .table-row .col img {
+      width: 41px;
+      height: 41px;
+    }
+  }
+  
+  @media all and (max-width: 767px) {
+    .table-row .col, .table-row .col p, .table-row div {
+      font-size: 1rem !important;
+    }
+    .table-header {
+      display: none;
+    }
+    .table-row {
+      display: flex !important;
+      flex-wrap: wrap;
+      padding: 23px 21px;
+    }
+    .table-row .col img {
+      width: 24px !important;
+      height: 24px !important;
+    }
+    li {
+      display: block;
+    }
+    .col {
+      display: flex !important;
+      flex-basis: 100% !important;
+      justify-content: space-between;
+    }
+    .col {
+      padding: 0 0 1rem !important;
+      &:before {
+        color: #ffffff80;
+        content: attr(data-label);
+        flex-basis: 40%;
+        font-size: 0.9rem !important;
+      }
+    }
+  }
+}
+/* End History */

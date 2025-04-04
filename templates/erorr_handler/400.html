@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5ZW3J6P3');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'bootstrap/css/bootstrap.css'%}" rel="stylesheet" />
+  <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet">
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'base/css/master.css'%}" />
+  <link rel="stylesheet" href="{% static 'base/css/fields.css' %}">
+  <link rel="stylesheet" href="{% static 'base/css/framework.css' %}">
+  <link id="favicon" rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+  <meta name="cryptomus" content="ccb11a35" />
+
+  <title>404</title>
+  <style>
+    body {
+      background-color: #1E1814;
+    }
+    img.image-404 {
+      height: 356px !important;
+    }
+    .home-link {
+      background-color: var(--secondary-color);
+      border-radius: 30px;
+      padding: 11px 30px;
+      color: white;
+    }
+    .home-link:hover {
+      background-color: var(--alt-secondary-color);
+      color: white;
+    }
+    @media (max-width: 767px) {
+      h2 {
+        font-size: 1rem !important;
+      }
+      img.image-404 {
+        height: 200px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZW3J6P3"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="body-overlay">
+    <!-- Start Header -->
+    {% include 'widgets/header.html' %}
+    <!-- End Header -->
+
+    <!-- Start Container -->
+    <div class="container py-5">
+        <div class="d-flex flex-column justify-content-center align-items-center py-5 mt-5">
+            <h2 class="mb-4">The page you are looking for is unavailable at the moment.</h2>
+            <img src="{% static 'gameboosterss/images/404.png' %}" alt="404" class="img-fluid image-404 mb-5">
+            <a href="{% url 'homepage.index' %}" class="fw-bold fs-4 home-link"><i class="fa-solid fa-tent-arrow-turn-left me-2"></i> Go Home</a>
+        </div>
+    </div>
+    <!-- End Container -->
+
+  </div>
+  <script src="{% static  'jQuery/jquery-3.7.0.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.js'%}"></script>
+  
+</body>
+
+</html>

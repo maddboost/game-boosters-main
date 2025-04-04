@@ -1,0 +1,23 @@
+{% extends 'layouts/base_mail.html' %}
+
+{% block subject %}
+New Message Arrived.
+{% endblock %}
+
+{% block container %}
+
+        <p>Hi  {{ madboost_user.username }},</p>
+        <p>{{message.user.username}} wants to chat with you on MadBoost.</p>
+        <p><strong>Order Details:</strong></p>
+
+        {% if madboost_user.is_booster %}
+        <p>To join the chat click<a href="https://www.madboost.gg/booster/orders/">here</a></p>
+        {% else %}
+        <p>To join the chat click<a href="https://www.madboost.gg/customer/customer_orders/">here</a></p>
+        {% endif %}
+
+        <div class="message-container">
+            <h2>{{message.user.username}}: {{ message.content }}</h2>
+        </div>
+    <p>On behalf of {{message.user.username}}</p>
+{% endblock %}

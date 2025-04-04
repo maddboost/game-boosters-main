@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Game Boosters{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'booster/css/booster-history.css' %}">
+{% endblock %}
+{% block container %}
+<div class="history-container">
+  <div class="history-landing">
+
+    <div class="heading">
+      <h1>Wallet</h1>
+      <p>Here is your latest transaction history and status</p>
+    </div>
+  </div>
+
+  <div class="history container">
+    <div class="table-container">
+      
+      {% if history %}
+        <table class="table">
+          <thead>
+            <tr class="title">
+              <th colspan="4">Wallet</th>
+              <th><span>Total: </span>{{request.user.wallet.money|floatformat:2}}$</th>
+            </tr>
+
+            <tr>
+              <th>Amount</th>
+              <th>Changes</th>
+              <th>New Value</th>
+              <th>Date</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+
+            {% for orderInfo in history %}
+              <tr>
+                <td>{{orderInfo.amount}}$</td>
+                <td>0$</td>
+                <td>{{orderInfo.amount}}$</td>
+                <td>{{orderInfo.date}}</td>
+                <td>{{orderInfo.notice}}</td>
+              </tr>
+            {% endfor %}
+          
+          </tbody>
+        </table>
+      {% endif %}
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}

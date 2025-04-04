@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .message-container {
+            background-color: #f26e3e;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .order-details {
+            background-color: #f26e3e;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn-mail {
+            display: inline-block;
+            background-color: #f26e3e; /* Orange background */
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            border: none;
+            cursor: pointer;
+        }
+
+            .btn-mail:hover {
+            background-color: #d85e33; /* Slightly darker orange for hover */
+            transform: translateY(-2px); /* Slight elevation */
+        }
+
+            .btn-mail:active {
+            background-color: #bf502b; /* Even darker orange when clicked */
+            transform: translateY(0);
+        }
+
+        body {
+            background-color: #f5f5f0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333; /* Ensures consistent text color */
+        }
+        .main-container {
+            background-color: #f8f8f3;
+            width: 100%;
+            max-width: 560px;
+            margin: 40px auto;
+            padding: 0px 20px 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            padding: 30px 20px;
+            background-color: #f26e3e;
+            color: #ffffff;
+            border-radius: 6px 6px 0 0;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 20px;
+            color: #333333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .content p {
+            margin: 15px 0;
+        }
+        .icons-section {
+            text-align: center;
+            padding: 15px 0;
+        }
+        .icons-section img {
+            width: 32px;
+            height: 32px;
+            margin: 0 8px;
+        }
+        .footer-links {
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+        .footer-links a {
+            color: #f26e3e;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+        .footer-links .separator {
+            margin: 0 5px;
+            color: #aaaaaa;
+        }
+        .text-center {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        /* Style all text elements explicitly */
+        h1, h2, h3, h4, h5, h6, p, a {
+            color: inherit;
+            text-decoration: none; /* Remove underline from links by default */
+        }
+
+        /* Prevent links from appearing differently when visited */
+        a {
+            color: #f26e3e; /* Same color as the button or your preferred color */
+        }
+        a:visited {
+            color: #f26e3e; /* Keep the same color as unvisited links */
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="logo text-center">
+            <img src="https://www.madboost.gg/static/base/images/icons/logo-trans-orange.png" alt="Logo" height="200px", width="360px">
+        </div>
+        
+        <div class="header">
+            <h1>{% block subject %}Welcome to Our Service{% endblock %}</h1>
+        </div>
+        
+        <div class="content">
+            {% block container %}
+
+            <p>We can help you bring your business to life online. Empowering you to do what you do, better.</p>
+            <p>Default Content</p>
+
+            {% endblock %}
+        </div>
+
+        <div class="icons-section">
+            <a href="https://www.facebook.com/madboost.gg/"><img src="https://www.madboost.gg/static/base/images/icons/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/madboost.gg/"><img src="https://www.madboost.gg/static/base/images/icons/instagram.png" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@MadBoostgg"><img src="https://www.madboost.gg/static/base/images/icons/youtube.png" alt="YouTube"></a>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://www.madboost.gg/terms-service/">Terms of use</a>
+            <span class="separator">|</span>
+            <a href="https://www.madboost.gg/privacy-policy/">Privacy Policy</a>
+        </div>
+
+        <p class="text-center">
+            If you have any questions, feel free to <a href="mailto:customerservice@madboost.com">contact us</a>.
+        </p>
+        <p class="text-center">&copy; 2024 Your Company. All rights reserved.</p>
+    </div>
+</body>
+</html>
