@@ -1,4 +1,5 @@
 from WorldOfWarcraft.models import KeystonePrice, WowLevelUpPrice
+from django.apps import apps
 
 def extract_bosses_ids(boss_string):
     if not boss_string:
@@ -19,9 +20,18 @@ def get_keyston_price():
     return price_list
 
 
+# def get_level_up_price():
+#     latest_price = WowLevelUpPrice.objects.all().order_by('-id').first()
+#     return latest_price.price if latest_price else 0
+
+
 def get_level_up_price():
-    latest_price = WowLevelUpPrice.objects.all().order_by('-id').first()
-    return latest_price.price if latest_price else 0
+    WowLevelUpPrice = apps.get_model('WorldOfWarcraft', 'WowLevelUpPrice')
+    try:
+        latest_price = WowLevelUpPrice.objects.all().order_by('-id').first()
+        return latest_price.price if latest_price else 0
+    except Exception:
+        return 0
 
 def get_rank_from_rp(rp):
     if rp >= 2100: 

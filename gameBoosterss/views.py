@@ -4,6 +4,7 @@ from games.models import Game
 from accounts.models import BaseOrder
 from django.views.generic import TemplateView, View
 from django.contrib.admin.models import LogEntry
+from django.core.exceptions import ObjectDoesNotExist
 
 def index(request):
   games = Game.objects.all().order_by('id')
@@ -14,9 +15,11 @@ def index(request):
   for order in last_orders_query:
     content_type = order.content_type
     if content_type:
-      last_order = content_type.model_class().objects.get(order = order)
-
-      last_orders.append(last_order)
+      try:
+        last_order = content_type.model_class().objects.get(order=order)
+        last_orders.append(last_order)
+      except ObjectDoesNotExist:
+        continue
 
   feedbacks = OrderRating.objects.all().order_by('id')
 
@@ -35,9 +38,11 @@ def last_orders(request):
   for order in last_orders_query:
     content_type = order.content_type
     if content_type:
-      last_order = content_type.model_class().objects.get(order = order)
-
-      last_orders.append(last_order)
+      try:
+        last_order = content_type.model_class().objects.get(order=order)
+        last_orders.append(last_order)
+      except ObjectDoesNotExist:
+        continue
 
   context = {
     "last_orders": last_orders

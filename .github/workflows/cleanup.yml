@@ -1,0 +1,25 @@
+name: Cleanup Old Images
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Run monthly
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Delete old images
+        uses: snok/container-retention-policy@v2
+        with:
+          image-names: madboost/game-boosters
+          cut-off: One month ago UTC
+          account-type: personal
+          keep-at-least: 5
+          skip-tags: latest 

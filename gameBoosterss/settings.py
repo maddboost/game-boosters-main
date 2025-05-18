@@ -8,7 +8,7 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
-print("SECRET_KEY",SECRET_KEY)
+# print("SECRET_KEY",SECRET_KEY)
 DEBUG = os.getenv('DEBUG') == 'True'
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
@@ -151,13 +151,24 @@ print(50 *"7")
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv('NAME'),
+        "NAME": os.getenv("DB_NAME", "gameboosters_db01"),
         "USER": os.getenv('DB_USER'),
-        "PASSWORD": os.getenv('PASSWORD'),
-        "HOST": os.getenv('HOST'),
+        "PASSWORD": os.getenv('DB_PASSWORD'),
+        # "HOST": os.getenv('HOST'),
+        'HOST': os.getenv('DB_HOST', 'db'),
         "PORT": "5432",
     }
 }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "gameboosters_db01",   # your database name
+#         "USER": "postgres",             # your database user
+#         "PASSWORD": "123",              # your database password
+#         "HOST": "localhost",            # local server
+#         "PORT": "5432",                 # default PostgreSQL port
+#     }
+# }
 
 
 
@@ -240,18 +251,23 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 
 
+# ALLOWED_HOSTS = [
+#     '8881-197-32-66-233.ngrok-free.app'
+#     'https://www.madboost.gg',
+#     'https://madboost.gg',
+#     'localhost',
+#     '127.0.0.1',
+#     'www.madboost.gg',
+#     'madboost.gg',
+#     'gameboost-test-f25426e2eac4.herokuapp.com',
+#     'www.gameboost-test-f25426e2eac4.herokuapp.com',
+#     '*' # remove in deplay mode
+#     ]
 ALLOWED_HOSTS = [
-    '8881-197-32-66-233.ngrok-free.app'
-    'https://www.madboost.gg',
-    'https://madboost.gg',
     'localhost',
     '127.0.0.1',
-    'www.madboost.gg',
-    'madboost.gg',
-    'gameboost-test-f25426e2eac4.herokuapp.com',
-    'www.gameboost-test-f25426e2eac4.herokuapp.com',
-    '*' # remove in deplay mode
-    ]
+    '*',  # Remove this after testing
+]
 
 
 # PAYPAL_EMAIL='sb-blcbf28542348@business.example.com'

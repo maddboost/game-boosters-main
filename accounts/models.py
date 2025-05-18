@@ -196,7 +196,7 @@ class BaseOrder(models.Model):
 
     price = models.FloatField(default=0, blank=True, null=True)
     actual_price = models.FloatField(default=0, blank=True, null=True)
-    real_order_price = models.FloatField() 
+    real_order_price = models.FloatField(null=True, default=0)
     money_owed = models.FloatField(default=0, blank=True, null=True)
     invoice = models.CharField(max_length=2000)
 
